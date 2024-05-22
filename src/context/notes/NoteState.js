@@ -54,7 +54,7 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY0MDVmZTg0N2IzODExMTEyYjVmYWY4In0sImlhdCI6MTcxNTQ5NDkwOH0.vxk7n8d4t_3CMCzLO1O6Zyp5Wkf2kM2jiK9vUyacEN8"
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp 7ImlkIjoiNjY0MDVmZTg0N2IzODExMTEyYjVmYWY4In0sImlhdCI6MTcxNTQ5NDkwOH0.vxk7n8d4t_3CMCzLO1O6Zyp5Wkf2kM2jiK9vUyacEN8"
       }
     });
     const json = response.json();
