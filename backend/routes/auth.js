@@ -64,7 +64,7 @@ router.post('/login', [
 
 ], async (req, res) => {
   const errors = validationResult(req);
-
+  let success = false;
 
   // Finds the validation errors in this request and wraps them in an object with handy functions
   // if there are errors, then return Bad request and the errors
@@ -76,13 +76,15 @@ router.post('/login', [
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ error: 'Please login with correct credentials' })
+      success = false;
+      return res.status(400).json({ success, error: 'Please login with correct credentials' })
     }
     // compare the password in the database with the user entered password
     // if not found error message occured
     const passwordCompare = await bcrypt.compare(password, user.password);
     if (!passwordCompare) {
-      return res.status(400).json({ error: 'Please login with correct credentials' })
+      success = false
+      return res.status(400).json({ success, error: 'Please login with correct credentials' })
     }
     // if found, then user id will be send
     const data = {
@@ -91,7 +93,8 @@ router.post('/login', [
       }
     }
     const authtoken = jwt.sign(data, JWT_SECRET); // jwt io
-    res.send({ authtoken })
+    success = true
+    res.send({ success, authtoken })
   }
   catch (error) { // Fix catch block to properly handle the error
     console.error(error.message);
