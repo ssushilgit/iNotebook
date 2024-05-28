@@ -21,7 +21,7 @@ const Signup = (props) => {
         if (json.success){
           // save the authtoken and redirect to home page
           localStorage.setItem('token', json.authtoken);
-          navigate("/login")
+          navigate("/home")
           props.showAlert("Account created successfully", "success")
         }
         else{
@@ -37,23 +37,23 @@ const Signup = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div class="mb-3">
-          <label for="name" class="form-label">Full Name </label>
-          <input type="text" class="form-control" id="name" name="name" onChange={onChange} aria-describedby="emailHelp" />
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Full Name </label>
+          <input type="text" className="form-control" id="name" name="name" onChange={onChange} aria-describedby="emailHelp" />
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" onChange={onChange} aria-describedby="emailHelp" />
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email address</label>
+          <input type="email" className="form-control" id="email" name="email" onChange={onChange} aria-describedby="emailHelp" />
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name ="password" onChange={onChange} minLength={5} required/>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password</label>
+          <input type="password" className="form-control" id="password" name ="password" onChange={onChange} minLength={5} required/>
         </div>
-        <div class="mb-3">
-          <label for="cpassword" class="form-label">Confirm Password</label>
-          <input type="password" class="form-control" id="cpassword" name="cpassword" onChange={onChange} minLength={5} required/>
+        <div className="mb-3">
+          <label htmlFor="cpassword" className="form-label">Confirm Password</label>
+          <input type="password" className="form-control" id="cpassword" name="cpassword" onChange={onChange} minLength={5} required/>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
   )
