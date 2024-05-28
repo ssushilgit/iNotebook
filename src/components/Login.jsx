@@ -18,7 +18,7 @@ const Login = () => {
           });
           const json = await response.json()
           console.log(json)
-
+ 
           if (json.success){
             // save the authtoken and redirect to home page
             localStorage.setItem('token', json.authtoken);
@@ -36,16 +36,16 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form className='container' onSubmit={handleSubmit}>
+        <div className='container'>
+            <form  onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" id="password" name="password" value={credentials.password} onChange={onChange}/>
+                    <div id="emailHelp" className="form-text">We'll never share your password with anyone else.</div>
                 </div>
 
                 <button type="submit" className="btn btn-primary" >Submit</button>
